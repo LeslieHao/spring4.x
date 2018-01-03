@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 /**
  * DESC: 4.0 新特性
@@ -13,7 +18,7 @@ import org.springframework.core.env.Environment;
  */
 @PropertySource("classpath:/config.properties")
 @PropertySource("classpath:/config1.properties")
-public class NewProperties {
+public class NewProperties<T> {
     @Value("${name}")
     String name;
 
@@ -24,6 +29,9 @@ public class NewProperties {
     Environment environment;
 
 
+    /**
+     * 重复注解的支持
+     */
     @Test
     @MyAnnotation(role = "Boy")
     @MyAnnotation(role = "Girl")
@@ -32,8 +40,38 @@ public class NewProperties {
         System.out.println(environment.getProperty("name"));
     }
 
-    public static void main(String[] args) {
-        new NewProperties().test1();
+    /**
+     * Optional
+     */
+    @Autowired
+    private Optional<UserDao> userDao;
+
+    void findUser(String name) {
+        if (userDao.isPresent()) {
+            // find
+        }
     }
+    @RequestMapping("")
+    public String getName(String id, Optional<String> sex) {
+        return "";
+    }
+
+    /**
+     * 泛型依赖注入
+     */
+    @Autowired
+    BaseDao<T> dao;
+    /**
+     * Map依赖注入
+     */
+    @Autowired
+    Map<String,String> map;
+    /**
+     * List依赖注入
+     */
+    @Autowired
+    List<String> list;
+
+
 
 }
