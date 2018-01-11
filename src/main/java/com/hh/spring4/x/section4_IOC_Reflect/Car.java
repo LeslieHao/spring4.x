@@ -1,5 +1,7 @@
 package com.hh.spring4.x.section4_IOC_Reflect;
 
+import org.springframework.core.io.Resource;
+
 /**
  * DESC:
  * Created by Hh on 2018/1/10
