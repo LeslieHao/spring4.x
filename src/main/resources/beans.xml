@@ -11,11 +11,21 @@
 
 
     <!-- 指定初始化方法 和 销毁方法 -->
-    <bean id="car1" class="com.hh.spring4.x.section4_IOC.Car"
+    <!-- 支持多个命名 逗号分隔 -->
+    <!--name="car1,car2"-->
+    <bean id="car1"
+
+          class="com.hh.spring4.x.section4_IOC.Car"
           init-method="myInit"
           destroy-method="myDestroy"
           p:brand="Audi"
           p:color="Gray"
           scope="singleton"
           p:maxSpeed="300"/>
+
+    <!-- 如果不指定命名，默认为全类名 -->
+    <bean class="com.hh.spring4.x.section4_IOC.Car"/>
+
+    <bean name="foo" class="com.hh.spring4.x.section4_IOC.Foo"
+          p:IDCard="666"/>
 </beans>
