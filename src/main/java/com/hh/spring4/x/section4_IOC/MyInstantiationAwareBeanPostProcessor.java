@@ -40,4 +40,16 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
 
         return pvs;
     }
+
+
+    public static void main(String[] args) {
+        double a = 100.02;
+        double d = 100.02;
+        double b = 200.92;
+
+        boolean c = b - a == 100.9;
+
+        System.out.println(b-a);
+        System.out.println(c);
+    }
 }

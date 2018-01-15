@@ -9,12 +9,13 @@
           p:color="Gray"
           p:maxSpeed="300"/>
 
+    <!-- set 方法注入 -->
 
     <!-- 指定初始化方法 和 销毁方法 -->
-    <!-- 支持多个命名 逗号分隔 -->
+    <!-- name 支持多个命名 逗号分隔 -->
+    <!-- id 标识bean 是卫衣的 不能用特殊字符 -->
     <!--name="car1,car2"-->
     <bean id="car1"
-
           class="com.hh.spring4.x.section4_IOC.Car"
           init-method="myInit"
           destroy-method="myDestroy"
@@ -23,9 +24,31 @@
           scope="singleton"
           p:maxSpeed="300"/>
 
-    <!-- 如果不指定命名，默认为全类名 -->
+    <!-- 构造函数注入 -->
+    <bean name="car2" class="com.hh.spring4.x.section4_IOC.Car">
+        <constructor-arg index="0" value="BMW M3"/>
+        <constructor-arg index="1" value="银灰色"/>
+        <constructor-arg index="2" value="300"/>
+        <!-- 引用下面的foo 而下面foo 又引用car2 循环依赖 无法启动； 所以此类情况不要使用构造函数注入  -->
+        <!--<constructor-arg index="4" ref="foo"/>-->
+    </bean>
+
+    <!-- 如果不指定命名name，默认name为全类名 -->
     <bean class="com.hh.spring4.x.section4_IOC.Car"/>
 
     <bean name="foo" class="com.hh.spring4.x.section4_IOC.Foo"
-          p:IDCard="666"/>
+          p:IDCard="666">
+        <!--<constructor-arg index="1" ref="foo"/>-->
+    </bean>
+
+    <!-- 非静态工厂方法注入 -->
+    <bean id="carFactory" class="com.hh.spring4.x.section4_IOC.CarFactory"/>
+    <bean id="car3" factory-bean="carFactory"
+          factory-method="createBMW"/>
+
+    <!-- 静态工厂方法注入 -->
+    <bean id="car4" class="com.hh.spring4.x.section4_IOC.CarFactory"
+          factory-method="createAudi"/>
+
+    <import resource="inject.xml"/>
 </beans>
