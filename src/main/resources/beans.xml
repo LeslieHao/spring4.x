@@ -51,4 +51,11 @@
           factory-method="createAudi"/>
 
     <import resource="inject.xml"/>
+
+    <!-- FactoryBean -->
+    <bean id="car6" class="com.hh.spring4.x.section5.CarFactoryBean"
+    p:carInfo="吉姆尼，红色，200"/>
+
+    <bean id="boss" class="com.hh.spring4.x.section5.Boss"
+          p:car-ref="car1"/>
 </beans>
