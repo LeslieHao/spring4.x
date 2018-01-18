@@ -54,8 +54,32 @@
 
     <!-- FactoryBean -->
     <bean id="car6" class="com.hh.spring4.x.section5.CarFactoryBean"
-    p:carInfo="吉姆尼，红色，200"/>
+          p:carInfo="吉姆尼，红色，200"/>
 
     <bean id="boss" class="com.hh.spring4.x.section5.Boss"
           p:car-ref="car1"/>
+
+    <bean id="greetingAdvice" class="com.hh.spring4.x.section7_AOP_Advice.GreetingBeforeAdvice"/>
+    <bean id="target" class="com.hh.spring4.x.section7_AOP_Advice.NaiveWaiter"/>
+    <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:proxyInterfaces="com.hh.spring4.x.section7_AOP_Advice.Waiter"
+          p:interceptorNames="greetingAdvice"
+          p:target-ref="target"/>
+
+    <bean id="greetingAround" class="com.hh.spring4.x.section7_AOP_Advice.GreetingAroundIntercept"/>
+    <bean id="waiter2" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:proxyInterfaces="com.hh.spring4.x.section7_AOP_Advice.Waiter"
+          p:interceptorNames="greetingAround"
+          p:target-ref="target"/>
+
+
+    <bean id="pMonitor" class="com.hh.spring4.x.section7_AOP_Proxy.PerFormanceMonitor"/>
+    <bean id="forumServiceTarget" class="com.hh.spring4.x.section7_AOP_Proxy.ForumServiceImpl"/>
+    <bean id="forumService" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:proxyInterfaces="com.hh.spring4.x.section7_AOP_Advice.Monitorable"
+          p:interceptorNames="forumServiceTarget"
+          p:target-ref="pMonitor"
+          p:proxyTargetClass="true"/>
+
+
 </beans>
