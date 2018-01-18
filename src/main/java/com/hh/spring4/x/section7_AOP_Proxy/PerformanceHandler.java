@@ -1,4 +1,4 @@
-package com.hh.spring4.x.section7_AOP;
+package com.hh.spring4.x.section7_AOP_Proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.hh.spring4.x.section7_AOP;
+package com.hh.spring4.x.section7_AOP_Proxy;
 
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class ForumServiceImpl implements ForumService {
     public void removeTopic(int topicId) {
 
         // 开始对该方法进行性能监视
-//        PerFormanceMonitor.begin("com.hh.spring4.x.section7_AOP.ForumServiceImpl.removeTopic");
+//        PerFormanceMonitor.begin("com.hh.spring4.x.section7_AOP_Proxy.ForumServiceImpl.removeTopic");
         System.out.println("模拟删除Topic 记录" + topicId);
         try {
             Thread.currentThread().sleep(20);
@@ -28,7 +28,7 @@ public class ForumServiceImpl implements ForumService {
 
     public void removeForum(int forumId) {
         // 开始对该方法进行性能监视
-//        PerFormanceMonitor.begin("com.hh.spring4.x.section7_AOP.removeForum.removeForum");
+//        PerFormanceMonitor.begin("com.hh.spring4.x.section7_AOP_Proxy.removeForum.removeForum");
         System.out.println("模拟删除Forum 记录" + forumId);
         try {
             Thread.currentThread().sleep(40);

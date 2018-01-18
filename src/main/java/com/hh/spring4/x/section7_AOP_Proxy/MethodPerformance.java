@@ -1,4 +1,4 @@
-package com.hh.spring4.x.section7_AOP;
+package com.hh.spring4.x.section7_AOP_Proxy;
 
 /**
  * DESC: 性能监视
