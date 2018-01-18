@@ -1,7 +1,7 @@
-package com.hh.spring4.x.section7;
+package com.hh.spring4.x.section7_AOP;
 
 /**
- * DESC:
+ * DESC: 调用性能监视
  * Created by Hh on 2018/1/17
  */
 public class PerFormanceMonitor {
@@ -18,7 +18,6 @@ public class PerFormanceMonitor {
     public static void end(){
         System.out.println("end monitor......");
         MethodPerformance mp = performanceRecord.get();
-
         mp.printPerformance();
     }
 

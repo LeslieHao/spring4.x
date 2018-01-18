@@ -1,7 +1,7 @@
-package com.hh.spring4.x.section7;
+package com.hh.spring4.x.section7_AOP;
 
 /**
- * DESC:
+ * DESC: 性能监视
  * Created by Hh on 2018/1/17
  */
 public class MethodPerformance {
