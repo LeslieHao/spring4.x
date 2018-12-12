@@ -1,10 +1,10 @@
 package com.hh.spring4.x.section4_IOC;
 
-import com.hh.spring4.x.section4_IOC_Reflect.Car;
 import org.junit.Test;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
@@ -17,6 +17,15 @@ import java.io.IOException;
  */
 public class BeanFactoryTest {
 
+
+    // 容器中存放的不是代理对象
+    // BeanDefinition
+    @Test
+    public void AppCtx(){
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+        Car car = ctx.getBean("car1", Car.class);
+        System.out.println(car);
+    }
 
     @Test
     public void getBean() throws IOException {

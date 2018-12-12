@@ -18,6 +18,7 @@ public class CarFactoryBean implements FactoryBean<Car> {
 
     private String carInfo;
 
+
     @Override
     public Car getObject() throws Exception {
         Car car = new Car();

@@ -2,7 +2,6 @@ package com.hh.spring4.x.section8_AspectJ;
 
 import com.hh.spring4.x.section7_AOP_Advice.NaiveWaiter;
 import com.hh.spring4.x.section7_AOP_Advice.Waiter;
-import org.aspectj.lang.annotation.Aspect;
 import org.junit.Test;
 import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
 import org.springframework.context.ApplicationContext;
