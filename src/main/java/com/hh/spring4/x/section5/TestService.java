@@ -1,11 +1,9 @@
 package com.hh.spring4.x.section5;
 
-import org.springframework.stereotype.Service;
-
 /**
  * @author HaoHao
- * @date 2018/12/12下午11:08
+ * @date 2018/12/14下午2:35
  */
-@Service
-public class TestService {
+
+public interface TestService {
 }
